@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  margin: 0;
+  background-image: url("/static/image3.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.topnav {
+  overflow: hidden;
+  margin-top: 10px;
+  background-color:transparent;
+  border-radius: 2px;
+}
+
+.topnav a,h1{
+  float: left;
+  color: whitesmoke;
+  text-align: center;
+  padding: 22px 30px;
+  text-decoration: none;
+  font-size: 22px;
+}
+
+.topnav a:hover {
+  background-color: white;
+  color: black;
+}
+</style>
+</head>
+<body>
+  <div class="topnav">
+    <b><a class="active" href="{{ url_for('home') }}">Home</a></b>
+    <b><a href="/signup">Register</a></b>
+    <b><a href="/login">Login</a></b>
+    <br> <br> <BR> <BR>
+    <h1> WELCOME !!   </h1>
+  </div>
+
+
+</body>
+</html>

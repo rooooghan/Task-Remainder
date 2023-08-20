@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+body {
+font-family: Arial, Helvetica, sans-serif;
+margin: 20px;
+background-image: url("/static/bg.jpeg");
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+* {box-sizing: border-box;}
+/* Add padding to containers */
+
+.container {
+padding: 70px;
+}
+/* Full-width input fields */
+input[type=text], input[type=password]{
+width: 33%;
+padding: 10px;
+margin: 10px 0 10px 0;
+display: inline-block;
+border: none;
+background: #f1f1f1;}
+
+
+input[type=text]:focus, input[type=password]:focus {
+background-color: #ddd;
+outline: none;}
+
+
+/* Set a style for the submit button */
+.registerbtn {
+background-color: #aa04a5;
+color: white;
+padding: 10px 15px;
+margin: 20px 0;
+border: none;
+cursor: pointer;
+width: 10%;
+opacity: 0.9;}
+
+.registerbtn:hover {
+opacity: 1;}
+
+/* Add a blue text color to links */
+a {
+color: dodgerblue;}
+
+/* Set a grey background color and center the text of the "sign in" section */
+
+.signin {
+background-color: #f1f1f1;
+text-align: center;}
+
+.topnav {
+  overflow: hidden;
+  background-color:transparent;
+  border-radius: 2px;
+}
+
+.topnav a {
+  float: left;
+  color: whitesmoke;
+  text-align: center;
+  padding: 15px 22px;
+  text-decoration: none;
+  font-size: 22px;
+}
+
+.topnav a:hover {
+  background-color: white;
+  color: black;
+}
+</style> 
+
+</head>
+<body>
+  <div class="topnav">
+    <b><a class="active" href="{{ url_for('home') }}">Home</a></b>
+  </div>
+
+  <div class="col-md-4">
+    {% with messages = get_flashed_messages()  %}
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      {{ message }}
+    </div>
+    {% endfor %}
+      {% endif %}
+      {% endwith %}
+</div>
+
+<form action="{{url_for('login')}}" method="post">
+<div class="container">
+<h1>LOGIN</h1>
+
+<label for="name"><b>MAIL ID</b></label><br>
+<input type="text" title="please enter registered mailid" placeholder="Enter mail id" name="email" id="email" required><br>
+<label for="psw"><b>PASSWORD</b></label><br>
+<input type="password" title="please enter your registered password" placeholder="Enter Password" name="password" id="psw" required><br>
+<button type="submit" class="registerbtn">LOGIN</button>
+<p>Don't have an account? <a href="{{ url_for('signup') }}">Signup</a> </p>
+</div>
+</form>
+
+
+</body>
+</html>
